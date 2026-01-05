@@ -1,0 +1,704 @@
+import React, { useState } from 'react';
+import { Calendar, Linkedin, FileText, BookOpen, TrendingUp, Menu, X } from 'lucide-react';
+
+const BlogSite = () => {
+  const [selectedArticle, setSelectedArticle] = useState(null);
+  const [activeTab, setActiveTab] = useState('blog');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const articles = [
+    {
+      id: 1,
+      title: "10 Essential KPIs Every PMO Should Track",
+      category: "PMO",
+      date: "2026-01-05",
+      readTime: "5 min",
+      summary: "Discover the key performance indicators that will help your PMO demonstrate value and drive strategic alignment.",
+      content: `Tracking the right metrics is crucial for PMO success. Here are the 10 essential KPIs every PMO should monitor:
+
+1. Project Success Rate
+Measure the percentage of projects completed on time, within budget, and meeting objectives. This is your north star metric.
+
+2. Resource Utilization
+Track how efficiently your team members are allocated across projects. Aim for 70-85% utilization for optimal productivity.
+
+3. Budget Variance
+Monitor the difference between planned and actual project costs. A variance within 10% is generally considered acceptable.
+
+4. Schedule Variance
+Measure how projects are tracking against timelines. Early identification of delays enables proactive intervention.
+
+5. Stakeholder Satisfaction
+Regular surveys help gauge how well the PMO is meeting stakeholder expectations and supporting business objectives.
+
+6. Risk Management Effectiveness
+Track the percentage of identified risks that are successfully mitigated before becoming issues.
+
+7. Change Request Volume
+Monitor the number and impact of change requests to identify scope creep patterns and improve initial planning.
+
+8. Benefits Realization
+Measure actual benefits achieved versus planned benefits to demonstrate ROI and strategic value.
+
+9. Portfolio Health
+Assess the overall health of your project portfolio using red/amber/green status indicators.
+
+10. PMO Cost as Percentage of Portfolio
+Calculate PMO operating costs relative to total portfolio value to demonstrate efficiency.
+
+Implement these KPIs using a balanced scorecard approach, reviewing them monthly with leadership to drive continuous improvement.`
+    },
+    {
+      id: 2,
+      title: "Agile vs Waterfall: Choosing the Right Methodology",
+      category: "Project Management",
+      date: "2026-01-04",
+      readTime: "6 min",
+      summary: "A practical guide to selecting the best project management methodology for your specific project needs.",
+      content: `Choosing between Agile and Waterfall isn't about which is better—it's about which fits your project context.
+
+When to Choose Waterfall:
+- Requirements are clear and unlikely to change
+- Project scope is well-defined upfront
+- Regulatory compliance requires extensive documentation
+- Sequential phases make sense for your deliverable
+- Stakeholders prefer predictable timelines and budgets
+
+Examples: Construction projects, manufacturing implementations, regulatory compliance initiatives.
+
+When to Choose Agile:
+- Requirements are expected to evolve
+- Rapid delivery of value is prioritized
+- Customer feedback will shape the solution
+- Innovation and experimentation are encouraged
+- Cross-functional collaboration is feasible
+
+Examples: Software development, product innovation, digital transformation initiatives.
+
+Hybrid Approaches:
+Many organizations benefit from combining elements of both methodologies. Consider:
+
+- Using Waterfall for infrastructure while Agile for applications
+- Defining high-level phases in Waterfall while executing in sprints
+- Maintaining Agile delivery with Waterfall governance
+
+Decision Framework:
+Ask these questions to guide your choice:
+1. How stable are the requirements?
+2. What's the cost of change?
+3. How important is customer feedback?
+4. What's the team's experience level?
+5. What does the organization culture support?
+
+Remember, the goal is successful delivery—not methodology purity. Choose what works best for your specific context and be willing to adapt.`
+    },
+    {
+      id: 3,
+      title: "Product Roadmap Prioritization: The RICE Framework",
+      category: "Product Management",
+      date: "2026-01-03",
+      readTime: "7 min",
+      summary: "Learn how to prioritize your product backlog effectively using the RICE scoring model for maximum impact.",
+      content: `The RICE framework helps product managers make objective prioritization decisions by scoring initiatives across four factors.
+
+RICE stands for:
+- Reach: How many people will this impact?
+- Impact: How much will it impact each person?
+- Confidence: How certain are you about your estimates?
+- Effort: How much time will this require?
+
+How to Calculate RICE Score:
+RICE Score = (Reach × Impact × Confidence) / Effort
+
+Step-by-Step Process:
+
+1. Reach (per quarter)
+Estimate how many users/customers will be affected within a time period.
+Example: 5000 users per quarter
+
+2. Impact (scale of 0.25 to 3)
+Rate the impact on each person:
+- 3 = Massive impact
+- 2 = High impact
+- 1 = Medium impact
+- 0.5 = Low impact
+- 0.25 = Minimal impact
+
+3. Confidence (percentage)
+Rate your certainty in your estimates:
+- 100% = High confidence
+- 80% = Medium confidence
+- 50% = Low confidence
+
+4. Effort (person-months)
+Estimate total team time required.
+Example: 2 person-months
+
+Real Example:
+Feature: Mobile app dark mode
+- Reach: 8000 users/quarter
+- Impact: 1 (medium - nice to have)
+- Confidence: 90% (0.9)
+- Effort: 0.5 person-months
+
+RICE Score = (8000 × 1 × 0.9) / 0.5 = 14,400
+
+Benefits of RICE:
+- Reduces bias in prioritization decisions
+- Creates alignment across stakeholders
+- Provides clear rationale for choices
+- Enables data-driven roadmap planning
+- Helps say no to low-impact work
+
+Tips for Success:
+- Review scores quarterly as data changes
+- Use consistent time periods for Reach
+- Include the whole team in estimation
+- Document assumptions for future reference
+- Combine with qualitative factors for final decisions
+
+Start using RICE today to build a more strategic, impact-driven product roadmap.`
+    },
+    {
+      id: 4,
+      title: "Building a Risk Management Culture in Your PMO",
+      category: "PMO",
+      date: "2026-01-02",
+      readTime: "5 min",
+      summary: "Transform risk management from a checkbox exercise into a proactive practice that protects project success.",
+      content: `Effective risk management isn't about creating lengthy risk registers—it's about building a culture where teams proactively identify and address threats.
+
+Why Risk Culture Matters:
+Organizations with strong risk cultures experience 30% fewer project failures and recover faster from issues when they occur.
+
+Five Pillars of Risk Culture:
+
+1. Psychological Safety
+Teams must feel safe raising concerns without fear of blame. When people fear reporting bad news, risks become issues before anyone can respond.
+
+Action: Celebrate early risk identification in team meetings and recognize proactive risk management.
+
+2. Regular Risk Reviews
+Make risk discussions a standard part of every project touchpoint—not just monthly reports.
+
+Action: Add a 10-minute risk review to weekly standups using a simple format: What could go wrong this week?
+
+3. Risk Ownership
+Every risk needs a clear owner responsible for monitoring and mitigation—not just the PM.
+
+Action: Assign risk owners based on expertise, not hierarchy. Empower them to take action.
+
+4. Quantified Impact
+Move beyond red/amber/green to quantify risks in business terms: days of delay, cost impact, revenue at risk.
+
+Action: Use simple formulas: Risk Value = Probability × Impact in dollars or days.
+
+5. Learning from Issues
+When risks become issues, conduct blame-free retrospectives to improve future identification.
+
+Action: Maintain a lessons learned database organized by risk category for future reference.
+
+Practical Implementation:
+
+Week 1: Train teams on risk identification techniques
+Week 2: Establish weekly risk review cadence
+Week 3: Create simple risk dashboard for visibility
+Week 4: Launch risk owner assignment process
+Week 5: Begin monthly lessons learned sessions
+
+Common Pitfalls to Avoid:
+- Over-complicated risk registers that nobody reads
+- Risk reviews that become blame sessions
+- Focusing only on documenting, not mitigating
+- Treating risk management as compliance theater
+
+Start small: Pick one pilot project, implement these practices, measure results, then scale to other projects. A strong risk culture is your best defense against project failure.`
+    },
+    {
+      id: 5,
+      title: "Stakeholder Mapping: Your Guide to Project Success",
+      category: "Project Management",
+      date: "2026-01-01",
+      readTime: "6 min",
+      summary: "Master the art of stakeholder analysis and engagement to navigate complex organizational dynamics.",
+      content: `Most projects fail not due to technical issues but because of stakeholder mismanagement. Stakeholder mapping is your strategic tool for success.
+
+The Power-Interest Matrix:
+
+High Power, High Interest (Manage Closely)
+These are your key players. They have both influence and investment in outcomes.
+- Strategy: Frequent communication, involve in decisions, seek input regularly
+- Example: Project sponsor, senior leadership, major budget holders
+
+High Power, Low Interest (Keep Satisfied)
+They can impact your project but aren't actively engaged day-to-day.
+- Strategy: Regular updates, seek approval at key milestones, don't overwhelm
+- Example: C-suite executives, regulatory bodies
+
+Low Power, High Interest (Keep Informed)
+They care deeply but can't directly influence outcomes.
+- Strategy: Regular communication, use as champions, gather feedback
+- Example: End users, department managers, team members
+
+Low Power, Low Interest (Monitor)
+Minimal engagement needed but don't ignore completely.
+- Strategy: General updates, inform of major changes
+- Example: Peripheral departments, some vendors
+
+Creating Your Stakeholder Map:
+
+Step 1: Identify All Stakeholders
+Brainstorm everyone who could affect or be affected by your project. Include:
+- Decision makers and approvers
+- Budget holders and resource providers
+- End users and beneficiaries
+- Technical teams and vendors
+- Influencers and resistors
+
+Step 2: Analyze Each Stakeholder
+For each stakeholder, assess:
+- Power: Can they stop or significantly impact the project?
+- Interest: How invested are they in the outcome?
+- Attitude: Supportive, neutral, or resistant?
+- Influence: Can they sway others' opinions?
+
+Step 3: Plan Engagement Strategies
+Develop specific approaches:
+- Communication frequency and channels
+- Type of information to share
+- Decision involvement level
+- Feedback mechanisms
+
+Step 4: Execute and Adapt
+Stakeholder dynamics shift throughout projects. Review and update your map monthly or when major changes occur.
+
+Red Flags to Watch:
+- Key stakeholder becoming disengaged
+- New stakeholders emerging mid-project
+- Supportive stakeholders turning resistant
+- Power dynamics shifting unexpectedly
+
+Pro Tips:
+- Map stakeholders before project kickoff
+- Use 1-on-1 meetings to understand motivations
+- Build coalitions among supportive stakeholders
+- Address resistance early and directly
+- Document stakeholder preferences and communication styles
+
+Remember: Projects are delivered by people, not processes. Invest time in stakeholder relationships and watch your success rate soar.`
+    },
+    {
+      id: 6,
+      title: "OKRs for Product Teams: A Practical Implementation Guide",
+      category: "Product Management",
+      date: "2025-12-31",
+      readTime: "8 min",
+      summary: "Set meaningful objectives and measurable key results that drive product success and team alignment.",
+      content: `OKRs (Objectives and Key Results) transform vague product goals into clear, measurable outcomes that align teams and drive results.
+
+What Makes Good OKRs:
+
+Objectives are:
+- Qualitative and inspirational
+- Time-bound (typically quarterly)
+- Actionable by the team
+- Aligned with company strategy
+
+Key Results are:
+- Quantitative and measurable
+- Outcome-focused, not output-focused
+- Ambitious but achievable
+- Limited to 3-5 per objective
+
+Bad vs Good Examples:
+
+BAD Objective: "Improve the product"
+GOOD Objective: "Become the go-to platform for small business invoicing"
+
+BAD Key Result: "Launch 5 new features"
+GOOD Key Result: "Increase daily active users from 10K to 15K"
+
+BAD Key Result: "Conduct 20 user interviews"
+GOOD Key Result: "Improve NPS score from 45 to 60"
+
+Product Team OKR Template:
+
+Objective: Establish market leadership in [segment]
+
+Key Results:
+- Increase market share from X% to Y%
+- Achieve customer satisfaction score of Z
+- Reduce churn rate from A% to B%
+
+Objective: Deliver exceptional user experience
+
+Key Results:
+- Decrease average task completion time by 30%
+- Increase feature adoption rate to 60%
+- Achieve app store rating of 4.5+ stars
+
+Objective: Build a scalable product platform
+
+Key Results:
+- Reduce technical debt by 40% (measured by code quality metrics)
+- Decrease production incidents by 50%
+- Improve page load time to under 2 seconds
+
+Implementation Process:
+
+Quarter Planning (Weeks 1-2):
+1. Review company OKRs and strategy
+2. Draft team OKRs aligned with company goals
+3. Get stakeholder feedback and buy-in
+4. Finalize and communicate to team
+
+Weekly Check-ins:
+- Review progress on key results
+- Identify blockers and needed support
+- Adjust tactics (not OKRs) as needed
+
+Monthly Reviews:
+- Score current progress (0-100%)
+- Discuss what's working and what's not
+- Realign efforts if needed
+
+Quarter End (Week 13):
+- Final scoring of OKRs
+- Retrospective on process
+- Document learnings for next quarter
+
+Scoring Your OKRs:
+
+- 0.7-1.0 (70-100%): Excellent achievement
+- 0.4-0.6 (40-60%): Good progress, room to improve
+- 0.0-0.3 (0-30%): Needs attention, reconsider approach
+
+Aim for an average score of 0.6-0.7 across all OKRs. Consistently scoring 1.0 means you're not being ambitious enough.
+
+Common Pitfalls:
+
+1. Too Many OKRs
+Stick to 3-5 objectives max. Focus drives results.
+
+2. Confusing Activities with Outcomes
+"Launch feature X" is an output. "Increase conversion by Y%" is an outcome.
+
+3. Setting Safe Goals
+OKRs should stretch you. If you're certain you'll hit them all, aim higher.
+
+4. Not Measuring Regularly
+Weekly reviews keep OKRs alive and relevant.
+
+5. Individual OKRs
+OKRs work best at team/company level. Use them for alignment, not performance reviews.
+
+Getting Started:
+
+This Quarter:
+- Choose 2-3 objectives aligned with your biggest challenges
+- Define 2-4 key results per objective
+- Set up weekly tracking in your existing tools
+- Share progress transparently with stakeholders
+
+Next Quarter:
+- Refine based on learnings
+- Expand to more teams
+- Integrate with existing planning processes
+
+OKRs aren't magic, but they provide clarity, alignment, and focus—the foundations of great product execution.`
+    }
+  ];
+
+  const socialSchedule = {
+    linkedin: [
+      {
+        date: "2026-01-06",
+        time: "09:00 AM",
+        post: "🎯 New Blog Post: '10 Essential KPIs Every PMO Should Track'\n\nIs your PMO measuring what truly matters? Learn which metrics demonstrate value and drive strategic alignment.\n\nKey highlights:\n✓ Project success rate tracking\n✓ Resource utilization optimization\n✓ Benefits realization measurement\n\nRead more: [BLOG LINK]\n\n#PMO #ProjectManagement #KPIs #BusinessMetrics",
+        article: articles[0]
+      },
+      {
+        date: "2026-01-08",
+        time: "10:00 AM",
+        post: "⚡ Agile vs Waterfall: It's Not About Which Is Better\n\nIt's about choosing what fits YOUR project context. Our latest guide breaks down:\n\n• When to use each methodology\n• Hybrid approaches that work\n• A decision framework you can use today\n\nStop the methodology wars. Start delivering successful projects.\n\nFull article: [BLOG LINK]\n\n#Agile #Waterfall #ProjectManagement #Methodology",
+        article: articles[1]
+      },
+      {
+        date: "2026-01-10",
+        time: "11:00 AM",
+        post: "📊 Struggling with product prioritization?\n\nThe RICE Framework helps you make objective decisions using:\n• Reach\n• Impact\n• Confidence\n• Effort\n\nOur complete guide shows you how to calculate RICE scores and build a data-driven roadmap.\n\nGet the framework: [BLOG LINK]\n\n#ProductManagement #Prioritization #ProductRoadmap #RICE",
+        article: articles[2]
+      },
+      {
+        date: "2026-01-13",
+        time: "09:30 AM",
+        post: "🛡️ Risk Management Isn't About Long Reports\n\nIt's about building a culture where teams proactively identify and address threats.\n\nOrganizations with strong risk cultures experience 30% fewer project failures.\n\nDiscover the 5 pillars of risk culture in our latest post.\n\nRead now: [BLOG LINK]\n\n#RiskManagement #PMO #ProjectSuccess #OrganizationalCulture",
+        article: articles[3]
+      },
+      {
+        date: "2026-01-15",
+        time: "10:30 AM",
+        post: "💡 Did you know? Most projects fail due to stakeholder mismanagement, not technical issues.\n\nOur stakeholder mapping guide covers:\n✓ The Power-Interest Matrix\n✓ Engagement strategies for each stakeholder type\n✓ Red flags to watch for\n✓ Pro tips for building relationships\n\nMaster stakeholder management: [BLOG LINK]\n\n#StakeholderManagement #ProjectManagement #Leadership",
+        article: articles[4]
+      }
+    ],
+    pinterest: [
+      {
+        date: "2026-01-07",
+        time: "02:00 PM",
+        board: "Project Management Tips",
+        title: "10 Essential PMO KPIs Infographic",
+        description: "Track these 10 KPIs to demonstrate PMO value: Project success rate, resource utilization, budget variance, and more. Download the full checklist! #PMO #ProjectManagement #KPIs",
+        article: articles[0]
+      },
+      {
+        date: "2026-01-09",
+        time: "03:00 PM",
+        board: "Agile & Waterfall",
+        title: "Choosing the Right Project Methodology",
+        description: "Agile vs Waterfall decision framework. When to use each methodology, hybrid approaches, and practical examples for every project type. #ProjectManagement #Agile #Waterfall",
+        article: articles[1]
+      },
+      {
+        date: "2026-01-11",
+        time: "02:30 PM",
+        board: "Product Management",
+        title: "RICE Framework for Product Prioritization",
+        description: "Master product prioritization with the RICE scoring model. Calculate Reach × Impact × Confidence / Effort for data-driven roadmap decisions. #ProductManagement #Prioritization",
+        article: articles[2]
+      },
+      {
+        date: "2026-01-14",
+        time: "01:00 PM",
+        board: "Risk Management",
+        title: "Building a Risk Management Culture",
+        description: "5 pillars of effective risk management culture: Psychological safety, regular reviews, risk ownership, quantified impact, and learning. Reduce project failures by 30%. #RiskManagement",
+        article: articles[3]
+      },
+      {
+        date: "2026-01-16",
+        time: "03:30 PM",
+        board: "Stakeholder Engagement",
+        title: "Stakeholder Mapping Power-Interest Matrix",
+        description: "Navigate complex organizational dynamics with effective stakeholder mapping. Learn the Power-Interest Matrix and engagement strategies. #StakeholderManagement #Leadership",
+        article: articles[4]
+      }
+    ]
+  };
+
+  const ArticleCard = ({ article }) => (
+    <div 
+      className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow cursor-pointer border-l-4 border-blue-500"
+      onClick={() => setSelectedArticle(article)}
+    >
+      <div className="flex items-center gap-2 mb-3">
+        <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+          {article.category}
+        </span>
+        <span className="text-gray-500 text-sm">{article.readTime}</span>
+      </div>
+      <h3 className="text-xl font-bold text-gray-800 mb-2">{article.title}</h3>
+      <p className="text-gray-600 mb-4">{article.summary}</p>
+      <div className="flex justify-between items-center">
+        <span className="text-gray-500 text-sm">{article.date}</span>
+        <button className="text-blue-600 hover:text-blue-800 font-medium">
+          Read More →
+        </button>
+      </div>
+    </div>
+  );
+
+  const SocialPost = ({ post, platform }) => (
+    <div className="bg-white rounded-lg shadow-md p-5 border-l-4 border-green-500">
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-2">
+          {platform === 'linkedin' ? (
+            <Linkedin className="w-5 h-5 text-blue-700" />
+          ) : (
+            <div className="w-5 h-5 text-red-600">📌</div>
+          )}
+          <span className="font-semibold text-gray-800 capitalize">{platform}</span>
+        </div>
+        <div className="text-right">
+          <div className="text-sm font-medium text-gray-700">{post.date}</div>
+          <div className="text-xs text-gray-500">{post.time}</div>
+        </div>
+      </div>
+      {platform === 'pinterest' && (
+        <div className="mb-2">
+          <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">
+            Board: {post.board}
+          </span>
+        </div>
+      )}
+      <p className="text-gray-700 whitespace-pre-line text-sm mb-3">
+        {platform === 'linkedin' ? post.post : post.description}
+      </p>
+      {post.article && (
+        <div className="mt-3 pt-3 border-t">
+          <span className="text-xs text-gray-500">Links to: </span>
+          <span className="text-xs font-medium text-blue-600">{post.article.title}</span>
+        </div>
+      )}
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+      {/* Header */}
+      <header className="bg-white shadow-md sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-3">
+              <div className="bg-blue-600 p-2 rounded-lg">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-800">PMO Insights</h1>
+                <p className="text-sm text-gray-600">Project & Product Management Excellence</p>
+              </div>
+            </div>
+            
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex gap-6">
+              <button
+                onClick={() => setActiveTab('blog')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                  activeTab === 'blog' ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                <BookOpen className="w-5 h-5" />
+                Blog Posts
+              </button>
+              <button
+                onClick={() => setActiveTab('social')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                  activeTab === 'social' ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                <Calendar className="w-5 h-5" />
+                Social Schedule
+              </button>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <nav className="md:hidden mt-4 flex flex-col gap-2">
+              <button
+                onClick={() => {
+                  setActiveTab('blog');
+                  setMobileMenuOpen(false);
+                }}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                  activeTab === 'blog' ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                <BookOpen className="w-5 h-5" />
+                Blog Posts
+              </button>
+              <button
+                onClick={() => {
+                  setActiveTab('social');
+                  setMobileMenuOpen(false);
+                }}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                  activeTab === 'social' ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                <Calendar className="w-5 h-5" />
+                Social Schedule
+              </button>
+            </nav>
+          )}
+        </div>
+      </header>
+
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {selectedArticle ? (
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <button
+              onClick={() => setSelectedArticle(null)}
+              className="mb-6 text-blue-600 hover:text-blue-800 flex items-center gap-2"
+            >
+              ← Back to Articles
+            </button>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                {selectedArticle.category}
+              </span>
+              <span className="text-gray-500 text-sm">{selectedArticle.readTime}</span>
+              <span className="text-gray-500 text-sm">• {selectedArticle.date}</span>
+            </div>
+            <h1 className="text-4xl font-bold text-gray-900 mb-6">{selectedArticle.title}</h1>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">{selectedArticle.summary}</p>
+              <div className="text-gray-700 whitespace-pre-line leading-relaxed">
+                {selectedArticle.content}
+              </div>
+            </div>
+          </div>
+        ) : activeTab === 'blog' ? (
+          <>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Latest Articles</h2>
+              <p className="text-xl text-gray-600">Expert insights on PMO, project, and product management</p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              {articles.map(article => (
+                <ArticleCard key={article.id} article={article} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Social Media Schedule</h2>
+              <p className="text-xl text-gray-600">Planned posts for LinkedIn and Pinterest</p>
+            </div>
+            
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <Linkedin className="w-6 h-6 text-blue-700" />
+                LinkedIn Posts
+              </h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                {socialSchedule.linkedin.map((post, idx) => (
+                  <SocialPost key={idx} post={post} platform="linkedin" />
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <span className="text-2xl">📌</span>
+                Pinterest Pins
+              </h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                {socialSchedule.pinterest.map((post, idx) => (
+                  <SocialPost key={idx} post={post} platform="pinterest" />
+                ))}
+              </div>
+            </div>
+          </>
+        )}
+      </main>
+
+      <footer className="bg-gray-900 text-white mt-16 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gray-400">© 2026 PMO Insights. Empowering project and product professionals.</p>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default BlogSite;
